@@ -1,0 +1,61 @@
+*{
+    margin:0;
+    padding:0;
+    font-family: 'Lato', sans-serif;
+}
+
+.wrapper{
+    width:80%;
+    margin: 0 auto; 
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+    color:#414040;
+}
+table td{
+    padding:10px;
+    
+}
+table thead tr{
+    font-weight:bold;
+    border-bottom:1px solid #878787;
+}
+td{
+    border:1px solid #000;
+}
+.ic{
+   
+   display: inline-block;
+   width:17px;
+   height: 17px;
+   background-image: url('../src/images/arrow-left.png');
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+   margin-bottom: 4px;
+   margin-right:5px;
+   vertical-align: middle;
+   
+}
+.ic:hover{
+    transition-duration:400ms;
+    transform: rotate(90deg);
+}
+table thead tr td:nth-child(1){
+    width:10%;
+}
+table thead tr td:nth-child(2){
+    width:50%;
+}
+table thead tr td:nth-child(3){
+    width:15%;
+}
+table thead tr td:nth-child(4){
+    width:15%;
+}
+table thead tr td:nth-child(5){
+    width:10%;
+}
+table tbody tr:nth-child(even){
+    background:#e3e1e1;
+}
