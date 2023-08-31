@@ -56,46 +56,11 @@
                 </div>
             </div>
         </div>
-        <div class="task">
-            <div class="flex parent-task">
-                <p class="task-id">100</p>
-                <p class="task-name"> <i onclick="dropTask(this)" class="ic"></i>Clean home</p>
-                <p class="start-date">31/08/2023</p>
-                <p class="end-date">01/09/2023</p>
-                <p class="status">Open</p>
-                <p class="action"></p>
-            </div>
-            <div class="sub-tasks">
-                <div class="flex sub-task">
-                    <p class="task-id">100</p>
-                    <p class="task-name"><span class="sc-title">Clean home</span></p>
-                    <p class="start-date">31/08/2023</p>
-                    <p class="end-date">01/09/2023</p>
-                    <p class="status">Open</p>
-                    <p class="action"></p>
-                </div>
-                <div class="flex sub-task">
-                    <p class="task-id">100</p>
-                    <p class="task-name"><span class="sc-title">Clean home</span></p>
-                    <p class="start-date">31/08/2023</p>
-                    <p class="end-date">01/09/2023</p>
-                    <p class="status">Open</p>
-                    <p class="action"></p>
-                </div>
-                <div class="flex">
-                    <p class="task-id"></p>
-                    <p class="task-name"><span class="sc-title addnew">Add New +</span></p>
-                    <p class="start-date"></p>
-                    <p class="end-date"></p>
-                    <p class="status"></p>
-                    <p class="action"></p>
-                </div>
-            </div>
-        </div>
+        
         <div class="task">
             <div class="flex parent-task">
                 <p class="task-id"></p>
-                <p class="task-name addnew"> Add New +</p>
+                <p class="task-name addnew" onclick="submitTask()"> Add New +</p>
                 <p class="start-date"></p>
                 <p class="end-date"></p>
                 <p class="status"></p>
@@ -107,16 +72,19 @@
     </div>
     <div id="form" class="form">
         <p onclick="Close(this.parentNode)" class="form-close">Close X</p>
-        <form id="taskForm" onsubmit="addTask()">
+        <form id="taskForm">
             <label for="id">Enter Task Id</label></br>
             <input id="taskid" name="taskid" type="number" placeholder="Enter Id"/>
-            <p id="invalidid">jkadkkalk</p>
+            <p id="invalidId"></p>
+            <label for="tasktopic">Enter Task Topic</label></br>
+            <input id="tasktopic" name="tasktopic" type="text" placeholder="Enter Task Topic"/>
+            <p id="invalidTopic"></p>
             <label for="startdate">Enter Start Date And Time</label></br>
-            <input name="startdate" placeholder="Enter Date" type="date"/><input name="starttime" placeholder="Enter time" type="time"/>
-            <p id="invalidSdate">hejkdl;</p>
+            <input name="startdate" placeholder="Enter Date" type="datetime-local"/>
+            <p id="invalidSdate"></p>
             <label for="startdate">Enter End Date And Time</label></br>
-            <input name="enddate" placeholder="Enter Date" type="date"/><input name="endtime" placeholder="Enter time" type="time"/>
-            <p id="invalidEdate">KWDLS;a</p>
+            <input name="enddate" placeholder="Enter Date" type="datetime-local"/>
+            <p id="invalidEdate"></p>
             <input type="submit" name="submit"/>
         </form>
     </div>

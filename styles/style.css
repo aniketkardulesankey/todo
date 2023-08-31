@@ -85,6 +85,7 @@ p{
 .addnew{
     font-size:.9rem;
     font-style: italic;
+    cursor:pointer;
 }
 
 .parent-task:nth-child(even){
@@ -98,7 +99,7 @@ p{
     font-weight:bold;
     position:absolute;
     height:auto;
-    display:none;
+    
     background-color:#fff;
     top:50%;
     left:50%;
@@ -116,12 +117,16 @@ form{
 }
 
 .form input{
-    height:50px;
+    height:45px;
     border:1px solid #676767;
     margin:10px auto 5px auto;
     border-radius:5px;
 }
 .form input[type=number]{
+    width:calc(100% - 10px);
+    padding-left:10px;
+}
+.form input[type=text]{
     width:calc(100% - 10px);
     padding-left:10px;
 }
@@ -131,8 +136,8 @@ form{
     font-size:1.2rem;
     background-color:green;
 }
-.form input[type=date]{
-    width:55%;
+.form input[type=datetime-local]{
+    width:100%;
     margin-right:40px;
 }
 .form input[type=time]{
@@ -145,7 +150,7 @@ form{
     color:#cf3a3a;
     line-height: normal;
     height:10px;
-    width:50px;
+    width:250px;
 }
 .form-close{
     position: absolute;
