@@ -4,58 +4,152 @@
     font-family: 'Lato', sans-serif;
 }
 
+.flex{
+    display:flex;
+}
+
+.ic{
+   
+    display: inline-block;
+    width:17px;
+    height: 17px;
+    background-image: url('../src/images/arrow-left.png');
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    margin-bottom: 4px;
+    margin-right:5px;
+    vertical-align: middle;
+    
+ }
+ .rotate-ic{
+    transition-duration:400ms;
+    transform: rotate(90deg);
+ }
+
 .wrapper{
     width:80%;
     margin: 0 auto; 
+    color:#464545;
+    font-size:1rem;
 }
-table{
+
+.c-head{
+    display:flex;
     width:100%;
-    border-collapse:collapse;
-    color:#414040;
-}
-table td{
-    padding:10px;
-    
-}
-table thead tr{
+    height:40px;
+    background:#62abb6;
     font-weight:bold;
-    border-bottom:1px solid #878787;
 }
-td{
-    border:1px solid #000;
+.task-id, .status, .action{
+    width:10%;
 }
-.ic{
-   
-   display: inline-block;
-   width:17px;
-   height: 17px;
-   background-image: url('../src/images/arrow-left.png');
-   background-repeat: no-repeat;
-   background-size: 100% 100%;
-   margin-bottom: 4px;
-   margin-right:5px;
-   vertical-align: middle;
-   
+.task-name{
+    width:40%
 }
-.ic:hover{
+.start-date, .end-date{
+    width:15%;
+}
+
+
+p{
+    height:100%;
+    width:100%;
+    line-height:40px;
+}
+.task{
+    width:100%;
+}
+.parent-task, .sub-task{    
+    height:40px;
+}
+.sub-tasks{
+    color:#878787;
+    background-color: #d9dad967;
+    max-height:0;
     transition-duration:400ms;
-    transform: rotate(90deg);
+    overflow:hidden;
 }
-table thead tr td:nth-child(1){
-    width:10%;
+.show-subtask{
+    max-height:200px;
+    transition-duration:500ms;
 }
-table thead tr td:nth-child(2){
-    width:50%;
+.sub-tasks .sub-task .task-id{
+    text-align:right;
 }
-table thead tr td:nth-child(3){
-    width:15%;
+.sub-tasks .sub-task .task-name{
+    text-align: left;
 }
-table thead tr td:nth-child(4){
-    width:15%;
+.sc-title{
+    margin-left:50px;
 }
-table thead tr td:nth-child(5){
-    width:10%;
+.addnew{
+    font-size:.9rem;
+    font-style: italic;
 }
-table tbody tr:nth-child(even){
-    background:#e3e1e1;
+
+.parent-task:nth-child(even){
+    background-color:#7998b4
+}
+
+.form{
+    width:620px;
+    padding-top:20px;
+    padding-bottom:20px;
+    font-weight:bold;
+    position:absolute;
+    height:auto;
+    display:none;
+    background-color:#fff;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    padding:20px;
+    border-radius:10px;
+    box-shadow:0 0 17px grey;
+    z-index:2;
+}
+form{
+    width:400px;
+    margin: auto;
+    font-size:1.1rem;
+    color:#383737;
+}
+
+.form input{
+    height:50px;
+    border:1px solid #676767;
+    margin:10px auto 5px auto;
+    border-radius:5px;
+}
+.form input[type=number]{
+    width:calc(100% - 10px);
+    padding-left:10px;
+}
+.form input[type=submit]{
+    width:100%;
+    color:#fff;
+    font-size:1.2rem;
+    background-color:green;
+}
+.form input[type=date]{
+    width:55%;
+    margin-right:40px;
+}
+.form input[type=time]{
+    width:30%;
+}
+.form p{
+    margin:0;
+    margin-bottom:20px;
+    font-size:.89rem;
+    color:#cf3a3a;
+    line-height: normal;
+    height:10px;
+    width:50px;
+}
+.form-close{
+    position: absolute;
+    top:10px;
+    left:88%;
+    cursor:pointer;
 }
