@@ -11,6 +11,13 @@
     <title>Document</title>
 </head>
 <body>
+    <nav><p>ToDoApp</p></nav>
+    <div class="search-panel">
+        <div class="search-area">
+            <input id="searchInput" placeholder="Enter text to search task" id="searchTasks" type="text"/>
+            <button id="searchBtn">Search Tasks</button>
+        </div>
+    </div>
     <div class="wrapper">
         <div class="c-head">
             <p class="task-id">Task Id</p>
@@ -18,16 +25,16 @@
             <p class="start-date">Start Date</p>
             <p class="end-date">End Date</p>
             <p class="status">Status</p>
-            <p class="action"></p>
+            <p class="action">Actions</p>
         </div>
-        <div class="task">
+        <!-- <div class="task">
             <div class="flex parent-task">
                 <p class="task-id">100</p>
-                <p class="task-name"> <i onclick="dropTask(this)" class="ic"></i>Clean home</p>
+                <p class="task-name"> <i onclick="dropTask(this)" class="ic ic-arrow"></i>Clean home</p>
                 <p class="start-date">31/08/2023</p>
                 <p class="end-date">01/09/2023</p>
                 <p class="status">Open</p>
-                <p class="action"></p>
+                <p class="action"><i class="ic ic-edit"></i><i class="ic ic-delete"></i></p>
             </div>
             <div class="sub-tasks">
                 <div class="flex sub-task">
@@ -55,8 +62,10 @@
                     <p class="action"></p>
                 </div>
             </div>
-        </div>
+        </div> -->
         
+    </div>
+    <div class="wrapper2">
         <div class="task">
             <div class="flex parent-task">
                 <p class="task-id"></p>
@@ -67,14 +76,13 @@
                 <p class="action"></p>
             </div>
         </div>
-
-
     </div>
     <div id="form" class="form">
         <p onclick="Close(this.parentNode)" class="form-close">Close X</p>
+        <h3>Create New Task</h3>
         <form id="taskForm">
             <label for="id">Enter Task Id</label></br>
-            <input id="taskid" name="taskid" type="number" placeholder="Enter Id"/>
+            <input id="taskid" onkeyup="findId(this)" name="taskid" type="number" placeholder="Enter Id"/>
             <p id="invalidId"></p>
             <label for="tasktopic">Enter Task Topic</label></br>
             <input id="tasktopic" name="tasktopic" type="text" placeholder="Enter Task Topic"/>
@@ -86,6 +94,58 @@
             <input name="enddate" placeholder="Enter Date" type="datetime-local"/>
             <p id="invalidEdate"></p>
             <input type="submit" name="submit"/>
+        </form>
+    </div>
+    <div id="form2" class="form2">
+        <p onclick="Close(this.parentNode)" class="form-close">Close X</p>
+        <form id="taskForm2">
+            <label for="id">Enter Task Id</label></br>
+            <input id="taskid2" name="taskid" type="number" placeholder="Enter Id"/>
+            <p id="invalidId2"></p>
+            <label for="tasktopic">Enter Task Topic</label></br>
+            <input id="tasktopic2" name="tasktopic" type="text" placeholder="Enter Task Topic"/>
+            <p id="invalidTopic2"></p>
+            <label for="startdate">Enter Start Date And Time</label></br>
+            <input name="startdate2" placeholder="Enter Date" type="datetime-local"/>
+            <p id="invalidSdate2"></p>
+            <label for="enddate">Enter End Date And Time</label></br>
+            <input name="enddate2" placeholder="Enter Date" type="datetime-local"/>
+            <p id="invalidEdate2"></p>
+            <input type="submit" name="submit"/>
+        </form>
+    </div>
+
+    <div id="updateTask" class="form2">
+        <p onclick="Close(this.parentNode)" class="form-close">Close X</p>
+        <form id="updateTaskForm">
+            <label for="id">Enter Task Id</label></br>
+            <input id="updateTaskId" id="updatetaskid" name="taskid" type="number" placeholder="Enter Id"/>
+            <p id="invalidId2"></p>
+            <label for="tasktopic">Enter Task Topic</label></br>
+            <input id="updateTaskTopic" id="updatetasktopic" name="tasktopic" type="text" placeholder="Enter Task Topic"/>
+            <p id="invalidTopic2"></p>
+            <label for="startdate">Enter Start Date And Time</label></br>
+            <input id="updateStartDate" name="updatestartdate" placeholder="Enter Date" type="datetime-local"/>
+            <p id="invalidSdate2"></p>
+            <label for="enddate">Enter End Date And Time</label></br>
+            <input id="updateEndDate" name="updateenddate" placeholder="Enter Date" type="datetime-local"/>
+            <p id="invalidEdate2"></p>
+            <label for="status">Status</label></br>
+            <select id="status">
+                <option value="In Progress">
+                    In-progress
+                </option>
+                <option value="Due Past">
+                    Due Past
+                </option>
+                <option value="Competed">
+                    Completed
+                </option>
+                <option value="Cancelled">
+                    Cancelled
+                </option>
+            </select></br>
+            <button id="updateTaskButoon">Update Task</button>
         </form>
     </div>
     <script type="text/javascript" src="scripts/main.js"></script>

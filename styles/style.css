@@ -9,18 +9,32 @@
 }
 
 .ic{
-   
     display: inline-block;
-    width:17px;
-    height: 17px;
-    background-image: url('../src/images/arrow-left.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     margin-bottom: 4px;
     margin-right:5px;
     vertical-align: middle;
+    cursor:pointer;
     
  }
+ .ic-arrow{
+    width:17px;
+    height: 17px;
+    background-image: url('../src/images/arrow-left.png');
+ }
+ .ic-delete{
+    width:27px;
+    height:27px;
+    margin-left:15px;
+    background-image: url('../src/images/delete_icon.png');
+ }
+ .ic-edit{
+    width:27px;
+    height:27px;
+    background-image: url('../src/images/edit_icon.png');
+ }
+
  .rotate-ic{
     transition-duration:400ms;
     transform: rotate(90deg);
@@ -30,7 +44,11 @@
     width:80%;
     margin: 0 auto; 
     color:#464545;
-    font-size:1rem;
+    font-size:.9rem;
+    margin-top:10px;
+}
+.wrapper .task:nth-child(odd){
+    background-color:#d4d0d0;
 }
 
 .c-head{
@@ -39,6 +57,9 @@
     height:40px;
     background:#62abb6;
     font-weight:bold;
+}
+.task-id{
+    text-align:center;
 }
 .task-id, .status, .action{
     width:10%;
@@ -64,10 +85,14 @@ p{
 }
 .sub-tasks{
     color:#878787;
-    background-color: #d9dad967;
+    background-color: #eaeceb7c;
     max-height:0;
     transition-duration:400ms;
     overflow:hidden;
+}
+
+.sub-task .task-id{
+    text-align:right;
 }
 .show-subtask{
     max-height:200px;
@@ -83,70 +108,75 @@ p{
     margin-left:50px;
 }
 .addnew{
-    font-size:.9rem;
+    font-size:.8rem;
     font-style: italic;
     cursor:pointer;
+    width:70px;
+    color:#878787;
 }
 
-.parent-task:nth-child(even){
-    background-color:#7998b4
-}
 
-.form{
-    width:620px;
+.form,.form2{
+    width:500px;
     padding-top:20px;
     padding-bottom:20px;
     font-weight:bold;
     position:absolute;
     height:auto;
-    
+    text-align:center;
     background-color:#fff;
     top:50%;
     left:50%;
+    display:none;
     transform: translate(-50%,-50%);
     padding:20px;
     border-radius:10px;
     box-shadow:0 0 17px grey;
     z-index:2;
 }
+
 form{
     width:400px;
     margin: auto;
-    font-size:1.1rem;
+    text-align:start;
+    font-size:1rem;
     color:#383737;
 }
+.form h3{
+    margin-bottom:20px;
+}
 
-.form input{
-    height:45px;
+.form input, .form2 input{
+    height:40px;
     border:1px solid #676767;
     margin:10px auto 5px auto;
     border-radius:5px;
 }
-.form input[type=number]{
+.form input[type=number], .form2 input[type=number]{
     width:calc(100% - 10px);
     padding-left:10px;
 }
-.form input[type=text]{
+.form input[type=text], .form2 input[type=text]{
     width:calc(100% - 10px);
     padding-left:10px;
 }
-.form input[type=submit]{
+.form input[type=submit], .form2 input[type=submit]{
     width:100%;
     color:#fff;
-    font-size:1.2rem;
+    font-size:1.1rem;
     background-color:green;
 }
-.form input[type=datetime-local]{
+.form input[type=datetime-local], .form2 input[type=datetime-local]{
     width:100%;
     margin-right:40px;
 }
-.form input[type=time]{
+.form input[type=time], .form2 input[type=time]{
     width:30%;
 }
-.form p{
+.form p, .form2 p{
     margin:0;
     margin-bottom:20px;
-    font-size:.89rem;
+    font-size:.80rem;
     color:#cf3a3a;
     line-height: normal;
     height:10px;
@@ -154,7 +184,58 @@ form{
 }
 .form-close{
     position: absolute;
-    top:10px;
-    left:88%;
+    top:15px;
+    left:68%;
     cursor:pointer;
+}
+form button{
+    width:100%;
+    height:50px;
+    color:#fff;
+    font-size:1.1rem;
+    border:none;
+    background-color:green;
+}
+nav{
+    height:70px;
+    width:100%;
+    background: #7653d4;
+    text-align: center;
+}
+
+nav p{
+    margin:auto;
+    color:#fff;
+    width:200px;
+    height:40px;
+    display:block;
+    font-weight:bold;
+    font-size: 2rem;
+}
+
+.search-panel{
+    margin:70px auto 50px auto;
+    width:80%;
+    height:auto;
+    padding-bottom:20px;
+}
+.search-area{
+    float:right;
+}
+
+.search-area input{
+    height:40px;
+    padding-left:10px;
+    width:250px;
+    border:1px solid #878787;
+    border-radius:5px;
+}
+.search-area button{
+    height:40px;
+    border:1px solid #878787;
+    border-radius:5px;
+    background-color:green;
+    color:#fff;
+    padding:5px;
+    font-size:1rem;
 }
