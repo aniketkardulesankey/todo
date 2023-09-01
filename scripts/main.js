@@ -65,7 +65,7 @@ function addTask(e){
                     topic:taskTopic,
                     start_date:startDate,
                     end_date:endDate,
-                    status:"open",
+                    status:"In Progress",
                     sub_tasks:[]
                 }
                 createTask(obje);
@@ -86,9 +86,18 @@ function addTask(e){
         invId.innerText = taskId == ""? "Please Enter Valid Task Id!":"";
     }
     
-
+    isTaskAvailable(taskArray);
 
     
+}
+
+function isTaskAvailable(a){
+    const noTask = document.getElementById("noTask");
+    if(a.length >= 1){
+        noTask.style.display = "none";
+    }else{
+        noTask.style.display = "block";
+    }
 }
 
 function Close(a){
@@ -207,7 +216,7 @@ function createSubTask(e){
             title:subTopic,
             start_date:subStartDate,
             end_date:subEndDate,
-            status:"open"
+            status:"In Progress"
 
         }
 
@@ -236,7 +245,7 @@ function displaySubTask(id, ob){
                                 <p class="start-date">${new Date(ob.start_date).toLocaleDateString()}</p>
                                 <p class="end-date">${new Date(ob.end_date).toLocaleDateString()}</p>
                                 <p class="status">${ob.status}</p>
-                                <p class="action"><i class="ic ic-edit"></i><i class="ic ic-delete"></i></p>
+                                <p class="action"><i class="ic ic-edit"></i><i onclick="deleteSubTask(this)" class="ic ic-delete"></i></p>
                             </div>`
                             subTaskInsert.insertAdjacentHTML('beforebegin', subTaskString);
 
@@ -251,6 +260,10 @@ function deleteTask(id){
         taskArray[objIndex].id_status = "deleted";
 
     Close(document.getElementById(id+"-task"));
+}
+
+function deleteSubTask(th){
+    Close(th.parentNode.parentNode);
 }
 
 function updateTask(id,th){
@@ -355,8 +368,8 @@ for(let i = 0; i < filteredData.length; i++){
                 <div class="flex parent-task">
                     <p class="task-id">${filteredData[i].task_id}</p>
                     <p class="task-name"> <i onclick="dropTask(this)" class="ic ic-arrow"></i>${filteredData[i].topic}</p>
-                    <p class="start-date">${filteredData[i].start_date}</p>
-                    <p class="end-date">${filteredData[i].end_date}</p>
+                    <p class="start-date">${filteredData[i].start_date.toLocaleDateString()}</p>
+                    <p class="end-date">${filteredData[i].end_date.toLocaleDateString()}</p>
                     <p class="status">${filteredData[i].status}</p>
                     <p class="action"><i onclick="updateTask(${filteredData[i].task_id},this)" class="ic ic-edit"></i><i onclick="deleteTask(${filteredData[i].task_id})" class="ic ic-delete"></i></p>
             </div>
@@ -370,10 +383,10 @@ for(let i = 0; i < filteredData.length; i++){
 
             string += `<div class="flex sub-task">
                             <p class="task-id">${filteredData[i].sub_tasks[j].task_id}</p>
-                            <p class="task-name"><span class="sc-title">${filteredData[i].sub_tasks[j].task_id}</span></p>
-                            <p class="start-date">${filteredData[i].sub_tasks[j].task_id}</p>
-                            <p class="end-date">${filteredData[i].sub_tasks[j].task_id}</p>
-                            <p class="status">${filteredData[i].sub_tasks[j].task_id}</p>
+                            <p class="task-name"><span class="sc-title">${filteredData[i].sub_tasks[j].topic}</span></p>
+                            <p class="start-date">${filteredData[i].sub_tasks[j].start_date.toLocaleDateString()}</p>
+                            <p class="end-date">${filteredData[i].sub_tasks[j].end_date.toLocaleDateString()}</p>
+                            <p class="status">${filteredData[i].sub_tasks[j].status}</p>
                             <p class="action"><i class="ic ic-edit"></i><i class="ic ic-delete"></i></p>
                         </div>`
 
@@ -405,21 +418,6 @@ const headers = `<div class="c-head">
 
 
 wrapper.innerHTML = headers + string;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 })
