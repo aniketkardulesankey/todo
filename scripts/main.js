@@ -137,7 +137,7 @@ function displayTask(obje){
                                 <div class="sub-tasks">
                                     <div class="flex">
                                         <p class="task-id"></p>
-                                        <p class="task-name" onclick="addSubTask(${obje.task_id})"><span class="sc-title addnew">Add New +</span></p>
+                                        <p class="task-name" onclick="addSubTask(${obje.task_id})"><span class="sc-title addnew">Add New Subtask +</span></p>
                                         <p class="start-date"></p>
                                         <p class="end-date"></p>
                                         <p class="status"></p>
@@ -346,8 +346,6 @@ searchBtn.addEventListener("click",function(){
         const ifId = parseInt(value.task_id);
         return (
           (value.topic.toLowerCase().includes(input.toLowerCase())  ||
-          value.start_date.toLowerCase().includes(input.toLowerCase())  ||
-          value.end_date.toLowerCase().includes(input.toLowerCase())  ||
           ifId == parseInt(input) ) &&
           value.id_status != "deleted"
         );
